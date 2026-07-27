@@ -26,7 +26,7 @@ echo Adding changes...
 git add -v .
 
 :: Asks you to type a commit message
-set /p msg="C8I-LLM-USB"
+set /p msg="Type the Commit Message.. "
 
 echo Committing changes...
 git commit -m "%msg%"

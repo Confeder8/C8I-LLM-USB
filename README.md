@@ -16,8 +16,9 @@ A **fully private, portable, uncensored AI assistant** that runs 100% from a USB
 
 During installation, you'll choose which model(s) to download:
 
-| # | Model | Size | Label | Best For |
-|---|-------|------|-------|----------|
+| # | GGUF | Model | Label | Best For |
+|---|------|-------|-------|----------|
+
 | 1 | **NemoMix Unleashed 12B** | ~7.0 GB | 🔓 UNCENSORED | ⭐ Recommended — best quality uncensored |
 | 2 | **Dolphin 2.9 Llama 3 8B** | ~4.9 GB | 🔓 UNCENSORED | Classic uncensored all-rounder |
 | 3 | **Mistral 7B Instruct v0.3** | ~4.1 GB | 🔒 STANDARD | Strong reasoning & coding |
@@ -26,6 +27,51 @@ During installation, you'll choose which model(s) to download:
 | 6 | **Phi-3.5 Mini 3.8B** | ~2.2 GB | 🔒 STANDARD | Lightweight — good reasoning |
 | C | **Custom GGUF** | Varies | 🎨 CUSTOM | Bring your own HuggingFace model |
 
+| 1 | dan-l3-r1-8b-q4_k_m-local|DAN L3 R1 8B| 🔓 UNCENSORED
+| 2 | dan-qwen3-1-7b-q3_k_m-local|DAN Qwen3 1 7B| 🔓 UNCENSORED
+| 3 | dan-qwen3-1-7b-q4_k_m-local|DAN Qwen3 1 7B| 🔓 UNCENSORED
+| 4 | deephat-v1-7b-heretic-abliterated-i1-q4_k_m-local|DeepHat V1 7B Heretic Abliterated| 🔓 UNCENSORED
+| 5 | deephat-v1-7b-q4_k_m-local|DeepHat V1 7B|STANDARD
+| 6 | dolphin3-0-llama3-1-8b-q4_k_m-local|Dolphin3 0 Llama3 1 8B| 🔓 UNCENSORED
+| 7 | hermes-3-llama-3-1-8b-q4_k_m-local|Hermes 3 Llama 3 1 8B|STANDARD
+| 8 | llama-3-2-3b-instruct-q4_k_m-local|Llama 3 2 3B Instruct|STANDARD
+| 9 | llama-3-2-3b-instruct-uncensored-q4_k_m-local|Llama 3 2 3B Instruct Uncensored| 🔓 UNCENSORED
+| 10 | meta-llama-3-1-8b-instruct-abliterated-q4_k_m-local|Meta Llama 3 1 8B Instruct Abliterated| 🔓 UNCENSORED
+| 11 | mistral-7b-instruct-v0-3-q4_k_m-local|Mistral 7B Instruct V0 3|STANDARD
+| 12 | nsfw-3b-q4_k_m-local|NSFW 3B| 🔓 UNCENSORED
+| 13 | nemomix-unleashed-12b-q4_k_m-local|NemoMix Unleashed 12B|STANDARD
+| 14 | openai-20b-neo-code2-plus-uncensored-iq4_nl-local|OpenAI 20B NEO CODE2 Plus Uncensored| 🔓 UNCENSORED
+| 15 | openai-20b-neo-codeplus-uncensored-iq4_nl-local|OpenAI 20B NEO CODEPlus Uncensored| 🔓 UNCENSORED
+| 16 | openai-20b-neo-codeplus16-uncensored-iq4_nl-local|OpenAI 20B NEO CODEPlus16 Uncensored| 🔓 UNCENSORED
+| 17 | openai-20b-neo-hrr-code-tri-uncensored-iq4_nl-local|OpenAI 20B NEO HRR CODE TRI Uncensored| 🔓 UNCENSORED
+| 18 | openai-20b-neo-hrrplus-uncensored-iq4_nl-local|OpenAI 20B NEO HRRPlus Uncensored| 🔓 UNCENSORED
+| 19 | openai-20b-neo-uncensored2-iq4_nl-local|OpenAI 20B NEO Uncensored2| 🔓 UNCENSORED
+| 20 | openai-20b-neoplus-uncensored-iq4_nl-local|OpenAI 20B NEOPlus Uncensored| 🔓 UNCENSORED
+| 21 | phi-3-5-mini-instruct-q4_k_m-local|Phi 3 5 Mini Instruct|STANDARD
+| 22 | qwen2-5-7b-instruct-q4_k_m-local|Qwen2 5 7B Instruct|STANDARD
+| 23 | qwen3-14b-abliterated-q4_k_m-local|Qwen3 14B Abliterated| 🔓 UNCENSORED
+| 24 | qwen3-42b-a3b-2507-thinking-abliterated-uncensored-total-recall-v2-medium-master|Qwen3 42B A3B 2507 Thinking Abliterated Uncensored TOTAL REC| 🔓 UNCENSORED
+| 25 | qwen3-coder-30b-a3b-instruct-q4_k_m-local|Qwen3 Coder 30B A3B Instruct|STANDARD
+| 26 | qwen3-5-9b-claude-code-q4_k_m-local|Qwen3 5 9B Claude Code|STANDARD
+| 27 | qwen3-5-9b-uncensored-hauhaucs-aggressive-q4_k_m-local|Qwen3 5 9B Uncensored HauhauCS Aggressive| 🔓 UNCENSORED
+| 28 | qwythos-9b-claude-mythos-5-1m-uncensored-heretic-q4_k_m-local|Qwythos 9B Claude Mythos 5 1M Uncensored Heretic| 🔓 UNCENSORED
+| 29 | unfilteredai-1b-q4_k_m-local|UNfilteredAI 1B| 🔓 UNCENSORED
+| 30 | dolphin-2-9-llama3-8b-q4_k_m-local|Dolphin 2 9 Llama3 8b| 🔓 UNCENSORED
+| 31 | gemma-2-2b-it-abliterated-q4_k_m-local|Gemma 2 2b It Abliterated| 🔓 UNCENSORED
+| 32 | gemma-2b-q4_k_m-local|Gemma 2b|STANDARD
+| 33 | gemma-4-12b-coder-fable5-composer2-5-v1-uncensored-heretic-q4_k_m-local|Gemma 4 12B Coder Fable5 Composer2 5 V1 Uncensored Heretic| 🔓 UNCENSORED
+| 34 | gemma-4-e4b-it-ultra-uncensored-heretic-q4_k_m-local|Gemma 4 E4B It Ultra Uncensored Heretic| 🔓 UNCENSORED
+| 35 | gemma4-opus48-q4_k_m-local|Gemma4 Opus48|STANDARD
+| 36 | huihui-ai-qwen3-30b-a3b-abliterated-q4_k_m-local|Huihui Ai Qwen3 30B A3B Abliterated| 🔓 UNCENSORED
+| 37 | luna-ai-llama2-uncensored-q4_k_m-local|Luna Ai Llama2 Uncensored| 🔓 UNCENSORED
+| 38 | mistral-7b-instruct-v0-1-q4_k_m-local|Mistral 7b Instruct V0 1|STANDARD
+| 39 | nsfw-flash-q4_k_m-local|Nsfw Flash Q4 K M| 🔓 UNCENSORED
+| 40 | qwen3-8b-abliterated-q4_k_m-local|Qwen3 8b Abliterated|UNCENSORED
+| 41 | supergemma4-26b-uncensored-fast-v2-q4_k_m-local|Supergemma4 26b Uncensored Fast V2| 🔓 UNCENSORED
+| 42 | l3.1-moe-6x8b-dark-rs-dantes-peak-hrr-r1-uncen-36b-q4_k_m-imat-local|Dark Reasoning Dantes Peak 36B| 🔓 THE HORROR
+| 43 | qwen3.5-4b-super-coder-q4_0-local|Qwen3.5 4B Super Coder|CODE
+| 44 | supercoder-7b-qwen2.5-0525-peft-grpo-v2-merged-q4_k_m-local|SuperCoder 7B|CODE
+| 45 | badmistral-1.5b-q4_k_m-local|BADMISTRAL 1.5B| 🔓 UNCENSORED
 > **🔓 UNCENSORED** = No content filters, answers everything  
 > **🔒 STANDARD** = Normal safety guidelines apply
 
