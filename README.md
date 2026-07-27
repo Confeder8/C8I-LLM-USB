@@ -63,6 +63,7 @@ During installation, you'll choose which model(s) to download:
 | 43 | qwen3.5-4b-super-coder-q4_0-local|Qwen3.5 4B Super Coder| CODE | Fast lightweight coding |
 | 44 | supercoder-7b-qwen2.5-0525-peft-grpo-v2-merged-q4_k_m-local|SuperCoder 7B| CODE | Optimized coding |
 | 45 | badmistral-1.5b-q4_k_m-local|BADMISTRAL 1.5B| 🔓 UNCENSORED | Fast uncensored responses |
+| C  | CUSTOM - Enter your own HuggingFace GGUF URL
 > **🔓 UNCENSORED** = No content filters, answers everything  
 > **🔒 STANDARD** = Normal safety guidelines apply  
 > **CODE** = Optimized for programming tasks
@@ -77,13 +78,19 @@ During installation, you'll choose which model(s) to download:
 ### Steps
 
 1. **Download this repo** and copy ALL files to your USB drive
-2. **Double-click `install.bat`** on the USB drive
-3. **Choose your model(s)** from the interactive menu
-4. **Interactive AnythingLLM Setup**:
-   - The AnythingLLM installer will open automatically.
-   - **IMPORTANT**: When asked for the "Install Location", click **Browse** and select the `anythingllm` folder on your USB drive.
-   - Wait for it to finish, then close the installer window.
-5. **Done!** Your portable AI is ready to use.
+2. **Double-click `install.bat`** on the USB drive — this runs `install-core.ps1` which automates everything
+3. **Choose your model(s)** from the interactive menu — pick one or more from 45 curated models
+4. **The installer downloads and installs everything automatically:**
+   - **AI Models** — Downloads selected GGUF files from HuggingFace, organizes into `models/<Publisher>/<Model>/` structure, creates Modelfiles and Ollama blobs/manifests for each
+   - **Ollama Engine** — Downloads and extracts the correct CPU architecture (x64 or Arm64) to `ollama\`
+   - **llama.cpp** — Downloads `llama-server.exe` + `llama-cli.exe` for direct GGUF inference (CPU, plus CUDA if NVIDIA GPU detected) to `llama.cpp\`
+   - **GGUFLoader** — GGUF model viewer/downloader installed to `ggufloader\`
+   - **AnythingLLM** — Downloads installer for all architectures, silently installs the running architecture to `anythingllm\`
+   - **LM Studio** — Installs LM Studio GUI to `LM Studio\` and configures model directory to USB `models\`
+   - **G0DM0D3** — Downloads single-file multi-model AI research tool to `godmod3\`
+5. **Models are imported into Ollama** — all selected models are registered (`ollama create`) with proper manifests and blobs
+6. **AnythingLLM is configured** — `.env` file created at `anythingllm_data\storage\.env` pointing to local Ollama server with your first model as default
+7. **Done!** Your portable AI is ready to use.
 
 ### ⚠️ If a Model Download Fails
 
@@ -95,7 +102,7 @@ The installer automatically retries failed downloads. If it still fails:
 
 ### 🔄 Adding More Models Later
 
-Just **re-run `install.bat`** and select additional models. Already-downloaded models are automatically skipped.
+Re-run `install.bat` and select additional models, or use **Option 8 (HF Download)** from `start-optimized.bat` to download new models without re-running the full installer. Already-downloaded models are automatically skipped.
 
 ### 🎨 Custom Models
 
@@ -198,6 +205,58 @@ USB Drive/
 | 1 recommended (NemoMix 12B) | 16 GB | 32 GB |
 | 2-3 models | 32 GB | 64 GB |
 | All 6 presets (~25 GB) | 64 GB | 64 GB |
+
+## 📜 Scripts Reference
+
+### Setup & Installation
+| Script | Purpose |
+|--------|---------|
+| `install.bat` | Main USB setup — runs `install-core.ps1` to download models and install all engines |
+| `install-core.ps1` | Full automation: model selection menu, download from HuggingFace, install Ollama/llama.cpp/LM Studio/AnythingLLM/G0DM0D3, build Ollama manifests, configure `.env` |
+| `install.sh` | Linux USB setup counterpart |
+| `install-core.sh` | Linux core installer logic (called by `install.sh`) |
+| `preflight-check.sh` | Linux pre-install check: detects USB mount, checks free space (min 16 GB), measures read/write speed |
+
+### Launchers
+| Script | Purpose |
+|--------|---------|
+| `start-optimized.bat` | Main Windows launcher — interactive menu: [1] AnythingLLM, [2] Browser Chat, [3] G0DM0D3, [4] llama.cpp, [5] LM Studio, [6] Cloud AI, [7] Puter.com, [8] HF Download, [9] Exit |
+| `Linux/start.sh` | Linux launcher — sets Ollama environment variables for USB portability, starts engine + web UI |
+| `Linux/start-linux.sh` | Linux secondary launcher |
+| `Android/start.sh` | Android/Termux launcher — starts natively-compiled Llama.cpp engine, serves FastChatUI over network |
+
+### Model Download & Organization
+| Script | Purpose |
+|--------|---------|
+| `download-models.bat` | Wrapper that calls `download-models.ps1` to fetch GGUF models from HuggingFace |
+| `download-models.ps1` | Interactive PowerShell menu — loads `models.json`, lets you select/download models, creates Modelfiles, optionally imports into Ollama |
+| `download_model.py` | Portable HuggingFace downloader via `huggingface_hub` with progress bar — usage: `<repo_id> <filename> <local_dir>` |
+| `update-models.bat` | Scans `models\` for manually-added `.gguf` files and registers them in the install catalog |
+| `update-models.ps1` | Scans for new/unregistered `.gguf` files, looks up HF download URLs, appends to `models.json` |
+| `organize_models.bat` | Reorganizes flat `.gguf` files into `models/<Publisher>/<ModelName>/` structure (tries PowerShell → Python → native batch) |
+| `organize_models.ps1` | Reads HF cache metadata to determine publisher, moves flat GGUFs into LM Studio-style hierarchy |
+| `organize_models.py` | Python equivalent — reads HF cache JSON metadata, reorganizes flat GGUFs into subdirectory structure |
+
+### Utilities
+| Script | Purpose |
+|--------|---------|
+| `chat_server.py` | Zero-dependency Python HTTP server — serves FastChatUI web interface, persists chat history as JSON, proxies Ollama API (no CORS issues) |
+| `hf_cli.py` | HuggingFace CLI with subcommands: `download` (model with progress), `search` (query HF), `list` (local directory), `organize` (flat-to-structured) |
+| `fix_manifests.py` | Repairs corrupt Ollama manifests where config blob incorrectly points to GGUF instead of JSON — reads GGUF headers to rebuild proper manifest entries |
+| `update_github.bat` | Git helper — initializes repo in USB root, stages/commits all changes, prompts to add remote GitHub URL |
+
+### Android / Termux
+| Script | Purpose |
+|--------|---------|
+| `Android/install.sh` | Android installer — compiles Llama.cpp natively on-device for max performance, sets up USB folder structure |
+| `Android/start.sh` | Android launcher — starts compiled Llama.cpp engine, serves FastChatUI over network |
+| `Android/uninstall.sh` | Android cleanup — removes compiled binaries and resets USB structure |
+
+### Linux
+| Script | Purpose |
+|--------|---------|
+| `Linux/reimport.sh` | Re-imports all models into Ollama on Linux (rebuilds manifests and blobs) |
+| `Linux/uninstall.sh` | Linux cleanup — removes installed components
 
 ## ⚠️ Important Notes
 
