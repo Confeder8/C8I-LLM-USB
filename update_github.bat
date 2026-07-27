@@ -26,10 +26,11 @@ echo Adding changes...
 git add -v .
 
 :: Asks you to type a commit message
-set /p msg="Type the Commit Message.. "
+REM set /p msg="Type the Commit Message.. "
 
 echo Committing changes...
-git commit -m "%msg%"
+REMM git commit -m "%msg%"
+git commit -m "C8I-LLM-USB"
 
 echo Pushing to GitHub...
 git push
