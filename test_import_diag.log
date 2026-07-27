@@ -1,6 +1,0 @@
-=== IMPORT DIAGNOSTIC TEST 2026-07-13 21:30:31 ===
-[21:30:31.519] Smallest GGUF: UNfilteredAI-1B.Q4_K_M.gguf (613.2 MB)
-[21:30:31.582] Modelfile: Modelfile-unfilteredai-1b-q4-k-m-local
-[21:30:31.582] Local name: unfilteredai-1b-q4-k-m-local
-[21:30:31.597] 
-[21:30:31.597] --- PRE-FLIGHT ---

@@ -2,9 +2,7 @@
 > **This repository (`Portable Uncensored AI `) is deprecated and is no longer actively maintained.**
 > 
 > All active development, features, and bug fixes (including the Windows crash/access violation fixes) have moved to:
-> ### 👉 **[Uncensored-Local-LLM](https://github.com/Confeder8/C8I-LLM-USB)**
-> 
-> Please visit the new repository to download the latest version, report issues, and follow the project's development.
+> ### 👉 **[Uncensored-Local-LLM-USB](https://github.com/Confeder8/C8I-LLM-USB)**
 
 
 # 🔒 Portable Uncensored AI — Runs Entirely from a USB Drive
