@@ -16,17 +16,8 @@ A **fully private, portable, uncensored AI assistant** that runs 100% from a USB
 
 During installation, you'll choose which model(s) to download:
 
-| # | GGUF | Model | Label | Best For |
-|---|------|-------|-------|----------|
-
-| 1 | **NemoMix Unleashed 12B** | ~7.0 GB | 🔓 UNCENSORED | ⭐ Recommended — best quality uncensored |
-| 2 | **Dolphin 2.9 Llama 3 8B** | ~4.9 GB | 🔓 UNCENSORED | Classic uncensored all-rounder |
-| 3 | **Mistral 7B Instruct v0.3** | ~4.1 GB | 🔒 STANDARD | Strong reasoning & coding |
-| 4 | **Qwen 2.5 7B Instruct** | ~4.7 GB | 🔒 STANDARD | Great multilingual support |
-| 5 | **Llama 3.2 3B Instruct** | ~2.0 GB | 🔒 STANDARD | Lightweight — fast on old PCs |
-| 6 | **Phi-3.5 Mini 3.8B** | ~2.2 GB | 🔒 STANDARD | Lightweight — good reasoning |
-| C | **Custom GGUF** | Varies | 🎨 CUSTOM | Bring your own HuggingFace model |
-
+| # | GGUF                     | Model Name | Label         | Best For |
+|---|--------------------------|------------|---------------|----------|
 | 1 | dan-l3-r1-8b-q4_k_m-local|DAN L3 R1 8B| 🔓 UNCENSORED
 | 2 | dan-qwen3-1-7b-q3_k_m-local|DAN Qwen3 1 7B| 🔓 UNCENSORED
 | 3 | dan-qwen3-1-7b-q4_k_m-local|DAN Qwen3 1 7B| 🔓 UNCENSORED
