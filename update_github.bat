@@ -23,7 +23,7 @@ if not exist ".git" (
 )
 
 echo Adding changes...
-git add .
+git add -v .
 
 :: Asks you to type a commit message
 set /p msg="Enter commit description: "

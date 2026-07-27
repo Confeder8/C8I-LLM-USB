@@ -46,7 +46,7 @@ Desktop.ini
 .DS_Store
 LocalLow/
 Microsoft/
-
+System Volume Information/
 node_modules/
 .venv/
 venv/

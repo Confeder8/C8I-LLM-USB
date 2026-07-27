@@ -2,7 +2,7 @@
 > **This repository (`Portable Uncensored AI `) is deprecated and is no longer actively maintained.**
 > 
 > All active development, features, and bug fixes (including the Windows crash/access violation fixes) have moved to:
-> ### 👉 **[Uncensored-Local-Studio](https://github.com/techjarves/Uncensored-Local-Studio)**
+> ### 👉 **[Uncensored-Local-LLM](https://github.com/Confeder8/C8I-LLM-USB)**
 > 
 > Please visit the new repository to download the latest version, report issues, and follow the project's development.
 
@@ -11,11 +11,7 @@
 
 A **fully private, portable, uncensored AI assistant** that runs 100% from a USB flash drive. No internet needed after setup. No data leaves the USB. Works on **Windows**, **Mac**, and **Linux**.
 
-**Now with multi-model support!** Choose from 6 curated AI models or bring your own.
-
-## 📺 Watch the Tutorial
-
-[![Portable AI USB Tutorial](https://img.youtube.com/vi/cqrMfO6AZRU/maxresdefault.jpg)](https://youtu.be/cqrMfO6AZRU)
+**Now with multi-model support!** Choose from 45 curated AI models or bring your own.
 
 
 ## ⚡ Available Models
@@ -83,7 +79,7 @@ By default, the installer configures Ollama with a 4K token limit for optimal pe
 ## ▶️ How to Use
 
 ### On Windows
-- Double-click **`start-windows.bat`** on the USB drive.
+- Double-click **`start-optimized.bat`** on the USB drive.
 - **Improved Portability**: The launcher now automatically clears old path caches. This allows you to move between different computers without "JavaScript errors."
 - The AnythingLLM chat window will open automatically.
 - **Switch between models** in AnythingLLM: Settings → LLM → select your model.
