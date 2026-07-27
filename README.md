@@ -16,8 +16,8 @@ A **fully private, portable, uncensored AI assistant** that runs 100% from a USB
 
 During installation, you'll choose which model(s) to download:
 
-| # | GGUF                     | Model Name | Label         | Best For |
-|---|--------------------------|------------|---------------|----------|
+| # | GGUF Name                     | Model Name | Label           | Best For           |
+|---|-------------------------------|------------|-----------------|--------------------|
 | 1 | dan-l3-r1-8b-q4_k_m-local|DAN L3 R1 8B| 🔓 UNCENSORED
 | 2 | dan-qwen3-1-7b-q3_k_m-local|DAN Qwen3 1 7B| 🔓 UNCENSORED
 | 3 | dan-qwen3-1-7b-q4_k_m-local|DAN Qwen3 1 7B| 🔓 UNCENSORED
@@ -57,7 +57,7 @@ During installation, you'll choose which model(s) to download:
 | 37 | luna-ai-llama2-uncensored-q4_k_m-local|Luna Ai Llama2 Uncensored| 🔓 UNCENSORED
 | 38 | mistral-7b-instruct-v0-1-q4_k_m-local|Mistral 7b Instruct V0 1|STANDARD
 | 39 | nsfw-flash-q4_k_m-local|Nsfw Flash Q4 K M| 🔓 UNCENSORED
-| 40 | qwen3-8b-abliterated-q4_k_m-local|Qwen3 8b Abliterated|UNCENSORED
+| 40 | qwen3-8b-abliterated-q4_k_m-local|Qwen3 8b Abliterated| 🔓 UNCENSORED
 | 41 | supergemma4-26b-uncensored-fast-v2-q4_k_m-local|Supergemma4 26b Uncensored Fast V2| 🔓 UNCENSORED
 | 42 | l3.1-moe-6x8b-dark-rs-dantes-peak-hrr-r1-uncen-36b-q4_k_m-imat-local|Dark Reasoning Dantes Peak 36B| 🔓 THE HORROR
 | 43 | qwen3.5-4b-super-coder-q4_0-local|Qwen3.5 4B Super Coder|CODE
