@@ -115,7 +115,7 @@ By default, the installer configures Ollama with a 4K token limit for optimal pe
 1. Open this folder on your USB drive. `anythingllm_data/storage`
 2. Open the `.env` file in a text editor.
 3. Find the line that says `OLLAMA_MODEL_TOKEN_LIMIT=4096` and change `4096` to your desired token limit (e.g., `8192` for 8K tokens).
-4. Save the file and restart the AI using the launcher script `start-windows.bat` or `start-mac.command` or `start-linux.sh`.
+4. Save the file and restart the AI using the launcher script `start-optimized.bat` or `start-mac.command` or `start-linux.sh`.
 5. Incase if you re-run the installer script `install.bat` or `install.sh` it will reset the token limit back to 4096, so you will need to change it again in the `.env` file.
 6. For mac, you may re-run the `start-mac.command` script and it will not overwrite the token limit in the `.env` file, so you can just restart the AI using this script after changing the token limit in the `.env` file.
 
@@ -166,45 +166,123 @@ By default, the installer configures Ollama with a 4K token limit for optimal pe
 
 ```
 USB Drive/
-├── install.bat             ← Run this first (one time only)
-├── install-core.ps1        ← Setup script (called by install.bat)
-├── start-windows.bat       ← Windows launcher (with auto-cache clearing)
-├── start-mac.command       ← Mac launcher
-├── ollama/                 ← AI engine (Windows)
-├── models/                 ← AI model files (.gguf) & configs
-│   ├── installed-models.txt    ← List of installed models
-│   └── *.gguf                  ← Model weights
-├── anythingllm/            ← Your AI Interface (installed here)
-├── installer_data/         ← Temporary installer files (auto-cleaned)
-└── anythingllm_data/       ← Your chats & settings (100% portable!)
+├── install.bat               ← Run this first (one time only)
+├── install-core.ps1          ← Core setup logic (called by install.bat)
+├── start-optimized.bat       ← Main Windows launcher (interactive menu)
+├── start-mac.command         ← Mac launcher
+├── download-models.bat/ps1   ← Download additional models
+├── update-models.bat/ps1     ← Register new models in catalog
+├── organize_models.bat/ps1/py← Organize flat .gguf into publisher/name/ structure
+├── update_github.bat         ← Git helper (stage, commit, push to GitHub)
+├── python/                   ← Portable Python 3.12 interpreter & pip packages
+├── ollama/                   ← Ollama AI engine
+│   ├── ollama.exe
+│   ├── data/                 ← Model blobs, manifests (auto-generated)
+│   └── lib/
+├── models/                   ← AI model files (.gguf) & configs
+│   ├── installed-models.txt  ← List of installed models
+│   ├── models.json           ← Machine-readable model catalog
+│   ├── .hf_cache/            ← HuggingFace download cache
+│   ├── <Publisher>/          ← e.g. bartowski/, mradermacher/, DavidAU/
+│   │   └── <ModelName>/      ← Modelfile + .gguf file
+│   └── *.gguf                ← (legacy flat files)
+├── llama.cpp/                ← Direct GGUF inference engine
+│   ├── llama-server.exe      ← OpenAI-compatible API server
+│   ├── llama-cli.exe         ← Command-line inference
+│   └── *.dll                 ← CPU-optimized kernels
+├── LM Studio/                ← GUI model browser + server
+│   ├── LM Studio.exe
+│   ├── bin/lms.exe           ← CLI tool
+│   ├── .lmstudio/            ← Settings, credentials, conversations
+│   ├── settings.json         ← Points model dir to USB models/
+│   └── resources/app/        ← Electron app bundle
+├── anythingllm/              ← Desktop RAG GUI (installed here)
+├── anythingllm_data/         ← Chats, settings, .env config (100% portable!)
+│   └── storage/.env          ← LLM_PROVIDER=ollama config
+├── ggufloader/               ← GGUF model viewer tool
+├── godmod3/                  ← Multi-model AI research tool (single HTML file)
+├── puter_chat/               ← Cloud AI web app
+│   ├── index.html            ← Chat UI with token auto-login
+│   ├── server.py             ← Custom Python server (prefs persistence)
+│   ├── config.js             ← API token (auto-generated from puter_config.txt)
+│   └── puter_profile/        ← Dedicated Chrome browser profile
+├── chat_data/                ← Browser chat history & settings
+│   ├── chats.json
+│   └── settings.json
+├── vendor/                   ← Web assets (fonts, highlight.js, FontAwesome)
+├── FastChatUI.html           ← Standalone web chat interface
+├── chat_server.py            ← Python HTTP server for FastChatUI
+├── hf_cli.py                 ← HuggingFace CLI (download/search/list/organize)
+├── download_model.py         ← Portable HF model downloader
+├── fix_manifests.py          ← Repair corrupt Ollama manifests
+├── browser_chat_profile/     ← Chrome profile for Option 2 (Browser Chat)
+├── Linux/                    ← Linux launchers & installers
+├── Mac/                      ← Mac launchers (.command files)
+├── Android/                  ← Android/Termux installers & launchers
+├── backup/                   ← Automatic backup snapshots
+├── installer_data/           ← Downloaded installers (Ollama, LM Studio, etc.)
+├── chat_server.log           ← Web chat server logs
+├── al_trace.txt              ← Activity log
+├── puter_config.txt          ← Puter.com API key (your JWT token)
+├── README.md                 ← This file
+├── CHANGELOG.txt             ← Version history
+├── LICENSE                   ← MIT License
+└── *.mp4 / *.mp3 / *.pdf     ← Reference materials & tutorials
 ```
+
 ## 📁 USB Drive Structure (After Setup) - LINUX
 
 ```
 USB Drive/
-├── install.sh             ← Linux / Mac installer
-├── preflight-check.sh     ← Linux USB drive health check [ run this first ] 
-├── install-core.sh        ← Core setup logic (called by install.sh)
-└── start-linux.sh         ← Linux launcher
-├── ollama/                 ← AI engine (Windows)
-├── models/                 ← AI model files (.gguf) & configs
-│   ├── installed-models.txt    ← List of installed models
-│   └── *.gguf                  ← Model weights
-├── anythingllm/            ← Your AI Interface (installed here)
-├── installer_data/         ← Temporary installer files (auto-cleaned)
-└── anythingllm_data/       ← Your chats & settings (100% portable!)
+├── install.sh                ← Linux / Mac installer
+├── install-core.sh           ← Core setup logic (called by install.sh)
+├── preflight-check.sh        ← USB drive health check (run this first)
+├── start.sh                  ← Linux launcher
+├── start-linux.sh            ← Secondary launcher
+├── reimport.sh               ← Re-import models into Ollama
+├── uninstall.sh              ← Remove installed components
+├── ollama/                   ← Ollama AI engine
+│   ├── ollama (binary)
+│   ├── data/                 ← Model blobs, manifests
+│   └── lib/
+├── models/                   ← AI model files (.gguf) & configs
+│   ├── installed-models.txt
+│   ├── models.json
+│   └── <Publisher>/<ModelName>/
+├── llama.cpp/                ← Direct GGUF inference engine
+├── LM Studio/                ← GUI (AppImage on Linux)
+├── anythingllm/              ← Desktop RAG GUI
+├── anythingllm_data/         ← Chats & settings
+├── ggufloader/               ← GGUF model viewer
+├── godmod3/                  ← Multi-model AI research tool
+├── FastChatUI.html           ← Web chat interface
+├── chat_server.py            ← Python HTTP server
+├── hf_cli.py                 ← HuggingFace CLI
+├── download_model.py         ← Portable HF downloader
+├── fix_manifests.py          ← Repair corrupt Ollama manifests
+├── puter_config.txt          ← Puter.com API key
+├── puter_chat/               ← Cloud AI web app
+├── vendor/                   ← Web assets
+├── installer_data/           ← Downloaded installers
+└── README.md                 ← This file
 ```
 
 ---
 
 ## 💾 USB Size Guide
 
-| Models | Minimum USB | Recommended USB |
-|--------|-------------|-----------------|
-| 1 lightweight (3B/3.8B) | 16 GB | 16 GB |
-| 1 recommended (NemoMix 12B) | 16 GB | 32 GB |
-| 2-3 models | 32 GB | 64 GB |
-| All 6 presets (~25 GB) | 64 GB | 64 GB |
+| Models | GGUF Size | Min USB (with system) | Recommended USB |
+|--------|-----------|----------------------|-----------------|
+| 1 lightweight (3B, e.g. Phi-3.5, Llama-3.2) | ~2 GB | 32 GB | 32 GB |
+| 1 small uncensored (7-8B, e.g. Dolphin, DAN, DeepHat) | ~4-5 GB | 32 GB | 64 GB |
+| 1 mid-range (12B, e.g. NemoMix, Gemma4-Opus) | ~7 GB | 32 GB | 64 GB |
+| 1 large (20B, e.g. OpenAI-NEO) | ~11-12 GB | 64 GB | 64 GB |
+| 1 extra-large (30-42B MoE, e.g. Qwen3-Coder, Huihui) | ~17-24 GB | 64 GB | 128 GB |
+| 3-5 mixed models | ~15-30 GB | 64 GB | 128 GB |
+| All 45+ models & engines (full collection) | ~315 GB | 512 GB | 512 GB |
+
+> System overhead (engines + tools): ~20 GB (AnythingLLM 1.7 GB + llama.cpp 4.3 GB + LM Studio 3.7 GB + browser profiles 7 GB + other)
+
 
 ## 📜 Scripts Reference
 
@@ -261,7 +339,7 @@ USB Drive/
 ## ⚠️ Important Notes
 
 - **Manual Path Selection**: When installing AnythingLLM, you must manually select the `anythingllm` folder on the USB to keep it portable.
-- **Moving between PCs**: If you see a "JavaScript Error" on a new PC, just close it and run `start-windows.bat` again. The script will automatically wipe the old PC's cached paths and fix the run.
+- **Moving between PCs**: If you see a "JavaScript Error" on a new PC, just close it and run `start-optimized.bat` again. The script will automatically wipe the old PC's cached paths and fix the run.
 - **Performance**: The AI runs on your **CPU** — responses take 10–30 seconds depending on hardware.
 - **RAM**: 12B models (NemoMix) need **at least 8 GB RAM**. 7B models need **at least 6 GB RAM**.
 - Always **safely eject** the USB before unplugging.
