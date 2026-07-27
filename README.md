@@ -123,11 +123,22 @@ By default, the installer configures Ollama with a 4K token limit for optimal pe
 
 ### On Windows
 - Double-click **`start-optimized.bat`** on the USB drive.
-- **Improved Portability**: The launcher now automatically clears old path caches. This allows you to move between different computers without "JavaScript errors."
-- The AnythingLLM chat window will open automatically.
-- **Switch between models** in AnythingLLM: Settings → LLM → select your model.
-- Keep the black terminal window open while chatting.
-- Press any key in the terminal to safely shut down.
+- A menu of launcher options appears. Select by typing a number and pressing **Enter**:
+
+  | Option | Description |
+  |--------|-------------|
+  | **1. AnythingLLM** | Desktop RAG GUI with Ollama backend. Chat window opens automatically. Switch models via Settings → LLM. |
+  | **2. Browser Chat** | Web chat UI at `http://localhost:3333`. Uses portable Python (auto-downloaded first time). |
+  | **3. G0DM0D3** | Multi-model AI research tool running in the browser on port 3334. Auto-downloads if not present. |
+  | **4. llama.cpp** | Pick a GGUF model from `models\` and start a local OpenAI-compatible server (`/v1` API). |
+  | **5. LM Studio** | Graphical model browser and inference server. Configured to use USB models directory. |
+  | **6. Cloud AI** | Puter.js-powered cloud AI with GPT/Claude/Gemini — no API key required. |
+  | **7. Puter.com** | Opens Puter.com — a full cloud desktop OS in your browser. |
+  | **8. HF Download** | Download, search, or list HuggingFace GGUF models. |
+  | **9. Exit** | Close the launcher. |
+
+- Close the browser/application window to return to the menu, or press any key to shut down safely.
+- **Improved Portability**: The launcher automatically clears old path caches, so you can move between computers without errors.
 
 ### On Mac
 - Double-click **`start-mac.command`** on the USB drive.
